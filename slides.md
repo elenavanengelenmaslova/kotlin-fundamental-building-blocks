@@ -84,35 +84,40 @@ layout: default
 # Table of contents
 
 
-<Toc minDepth="2" maxDepth="2"></Toc>
+<Toc minDepth="2" maxDepth="3"></Toc>
 
 ---
-transition: slide-up
+transition: fade-out
+layout: section
 
 level: 2
 ---
 
 # Variables
 
+---
+transition: fade-out
 
+level: 3
+---
 
+# Mutable Variables
 
-### Keyboard Shortcuts
+<v-clicks>
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+- Defined using the 'var' keyword
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+- Value can be changed after initial assignment
+
+- Useful when the value needs to be updated based on program logic or user input
+
+- Considerations 
+  - Mutable variables should be used judiciously 
+  - Excessive use can make code harder to reason about 
+  - Best practice: Use `val` when the variable's value does not need to change.
+
+</v-clicks>
+
 
 ---
 level: 2
@@ -233,26 +238,43 @@ preload: false
 
 # Start developing F1 simulator app
 
-Animations are powered 
+Stirling Moss: "To achieve anything in this game, you must be prepared to dabble in the boundary of disaster.”
 
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
+<div class="w-full relative mt-6">
+  <div class="relative w-80 h-80">
     <img
       v-motion
       :initial="{ x: 800 }"
       :enter="final"
       class="absolute top-0 left-0 right-0 bottom-0"
-      src="/skysports-red-bull.jpg"
+      src="https://cdn-4.motorsport.com/images/amp/63vxMQEY/s1000/formula-1-red-bull-racing-laun-2.jpg"
     />
   </div>
 
   <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
+    class="text-5xl absolute bottom-16 left-40 text-[#2B90B6] z-10"
     v-motion
     :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Drive with Kotlin!
+    :enter="{ x: -4, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
+    Drive with 
   </div>
+
+  <div
+    class="text-5xl absolute bottom-16 left-[calc(50%+3.8rem)] text-[#2B90B6] z-10"
+    v-motion
+    :initial="{ y: 100, opacity: 0}"
+    :enter="{ y: -4, opacity: 1, transition: { delay: 3500, duration: 1000 } }"
+    id="replaceK">
+    Kotlin!
+  </div>
+
+<logos-kotlin-icon
+v-motion
+:initial="{ y: 100, opacity: 0 }"
+:enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }"
+class="absolute text-5xl bottom-16 left-[calc(50%+3rem)] z-30"
+/>
+
 </div>
 
 <script setup lang="ts">
@@ -268,16 +290,11 @@ const final = {
     mass: 2
   }
 }
+
+setTimeout(() => {
+  document.getElementById('replaceK').style.opacity = "0";
+}, 3500);
 </script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-<logos-kotlin-icon />
-
-</div>
 
 
 ---
