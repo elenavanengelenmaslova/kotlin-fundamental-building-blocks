@@ -81,10 +81,25 @@ Here is another comment.
 layout: default
 ---
 
-# Table of contents
+# Session overview
 
+<v-clicks>
 
-<Toc minDepth="2" maxDepth="3"></Toc>
+1. Variables & Constants and Data Types
+
+2. String templates
+
+3. Functions
+
+4. Null safety
+
+5. Control flow statements
+
+6. Exception handling
+
+7. KDoc basics
+
+</v-clicks>
 
 ---
 transition: fade-out
@@ -105,7 +120,7 @@ level: 3
 
 <v-clicks>
 
-- Defined using the 'var' keyword
+- Defined using the `var` keyword
 
 - Value can be changed after initial assignment
 
@@ -120,117 +135,93 @@ level: 3
 
 
 ---
-level: 2
 ---
 
-# Code
+# Mutable variables - RaceCar Example
 
-Use code snippets and get the highlighting directly![^1]
+A public `lapTimes` array is updated using `addLapTime` function after each lap, `currentLap` that holds current lap number and `isPitStopNeeded` and a `currentSpeed` which are updated as needed.
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
+```kotlin {all|4-6,9,11-13}
+class RaceCar(
+  val carNumber: Int,
+  val maxSpeed: Double = Random.nextDouble(200.0, 230.0),
+  private var currentSpeed: Double = 0.0,
+  internal var currentLap: Int = 0,
+  internal var isPitStopNeeded: Boolean = false,
+  numLaps: Int,
+) {
+  var lapTimes = arrayOfNulls<Double>(numLaps)
+  
+  fun addLapTime(lapNumber: Int, time: Double) {
+    lapTimes[lapNumber] = time
+  }
 }
 
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
+```
+
+---
+---
+
+# Mutable variables - Driver Example
+
+Mutable `points` is updated after each race (if applicable) using `addPoints` function.
+
+```kotlin {all|3,6-8}
+class Driver(
+    val name: String,
+    var points: Int = 0,
+    val uuid: UUID = UUID.randomUUID() // unique identifier
+) {
+    fun addPoints(newPoints: Int) {
+        points += newPoints
+    }
 }
+
 ```
 
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
+---
+transition: fade-out
 
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
+level: 3
+---
 
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
+# Immutable Variables
+
+<v-clicks>
+
+- Defined using the `var` keyword
+
+- Value can be changed after initial assignment
+
+- Useful when the value needs to be updated based on program logic or user input
+
+- Considerations
+  - Mutable variables should be used judiciously
+  - Excessive use can make code harder to reason about
+  - Best practice: Use `val` when the variable's value does not need to change.
+
+</v-clicks>
+
+
+---
+---
+
+# Immutable Variables - Driver Example
+
+The properties `name` and `uuid` and `isPitStopNeeded` do not change after Driver instance is created.
+
+```kotlin {all|2,4}
+class Driver(
+    val name: String,
+    var points: Int = 0,
+    val uuid: UUID = UUID.randomUUID() // unique identifier
+) {
+    fun addPoints(newPoints: Int) {
+        points += newPoints
+    }
 }
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
 
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
 ```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
 
 ---
 preload: false
@@ -299,33 +290,6 @@ setTimeout(() => {
 
 ---
 
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
 
 # Diagrams
 
@@ -337,33 +301,6 @@ You can create diagrams / graphs from textual descriptions, directly in your Mar
 sequenceDiagram
     Alice->John: Hello John, how are you?
     Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectivness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
 ```
 
 ```plantuml {scale: 0.7}
