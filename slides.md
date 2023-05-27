@@ -255,12 +255,16 @@ Stirling Moss: "To achieve anything in this game, you must be prepared to dabble
     Kotlin!
   </div>
 
-<logos-kotlin-icon
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Kotlin_Icon.svg/512px-Kotlin_Icon.svg.png?20171012085709"
+alt="Kotlin Logo"
 v-motion
 :initial="{ y: 100, opacity: 0 }"
 :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }"
-class="absolute text-5xl bottom-16 left-[calc(50%+3rem)] z-30"
+class="absolute w-15 h-15 bottom-16 left-[calc(50%+3rem)] z-30"
 />
+
+
 
 </div>
 
