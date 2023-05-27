@@ -189,19 +189,15 @@ level: 3
 
 <v-clicks>
 
-- Defined using the `var` keyword
+- Defined using the `val` keyword
 
-- Value can be changed after initial assignment
+- Value cannot be changed after initial assignment - it is read-only
 
-- Useful when the value needs to be updated based on program logic or user input
+- Useful when the value does not change after initial assignment
 
-- Considerations
-  - Mutable variables should be used judiciously
-  - Excessive use can make code harder to reason about
-  - Best practice: Use `val` when the variable's value does not need to change.
+- Enhances code readability and safety
 
 </v-clicks>
-
 
 ---
 ---
