@@ -220,6 +220,69 @@ class Driver(
 ```
 
 ---
+transition: fade-out
+
+level: 3
+---
+
+# Variable Scope and Lifetime
+Variable 'scope' and 'lifetime' are essential aspects to understand for efficient variable management.
+
+<v-clicks>
+
+
+- Scope defines the code region where a variable is accessible.
+
+- Local Variables
+
+- Member Variables
+
+- Top-level Variables
+
+- Lifetime of a variable extends from its declaration point until its scope's termination.
+
+</v-clicks>
+
+<!--
+- Local Variables: Declared inside a block of code (like a function). Accessible only within the block they were declared. Lifetime extends until the end of the block.
+- Member Variables: Declared inside a class (but not inside a method). By default, they are public and can be accessed where the class object is accessible. Lifetime extends for the duration of the object of the class.
+- Top-level Variables: Declared outside any class or function. By default, they are public and can be accessed from any part of your program.
+
+-->
+
+---
+---
+
+# Variable Scope Example
+Can you identify local, member, and top level variables?
+
+```kotlin {all|9,13|9,11|13-15|5-8,11|1}
+var currentWeather: String = "Sunny"
+
+class RaceCar(
+    val carNumber: Int,
+    val maxSpeed: Double = Random.nextDouble(200.0, 230.0),
+    private var currentSpeed: Double = 0.0,
+    internal var currentLap: Int = 0,
+    internal var isPitStopNeeded: Boolean = false,
+    numLaps: Int,
+) {
+    var lapTimes = arrayOfNulls<Double>(numLaps)
+
+    fun addLapTime(lapNumber: Int, time: Double) {
+        lapTimes[lapNumber] = time
+    }
+}
+```
+
+<!--
+
+- Properties  `numLaps`, `lapNumber` and `time` are **local variables**
+- Properties `carNumber`, `maxSpeed`, `currentSpeed`, `currentLap`, `isPitStopNeeded` and `lapTimes` are **member variables**. The property 
+- `currentWeather` is a **top level variable**. 
+
+-->
+---
 preload: false
 ---
 
@@ -242,7 +305,7 @@ Stirling Moss: "To achieve anything in this game, you must be prepared to dabble
     class="text-5xl absolute bottom-16 left-40 text-[#2B90B6] z-10"
     v-motion
     :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: -4, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
+    :enter="{ x: -7, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
     Drive with 
   </div>
 
