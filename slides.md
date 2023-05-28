@@ -141,7 +141,7 @@ level: 3
 
 A public `lapTimes` array is updated using `addLapTime` function after each lap, `currentLap` that holds current lap number and `isPitStopNeeded` and a `currentSpeed` which are updated as needed.
 
-```kotlin {all|4-6,9,11-13}
+```kotlin {all|4-6,9|4-6,9|9,11-13}
 class RaceCar(
   val carNumber: Int,
   val maxSpeed: Double = Random.nextDouble(200.0, 230.0),
@@ -151,6 +151,7 @@ class RaceCar(
   numLaps: Int,
 ) {
   var lapTimes = arrayOfNulls<Double>(numLaps)
+     private set
   
   fun addLapTime(lapNumber: Int, time: Double) {
     lapTimes[lapNumber] = time
@@ -166,7 +167,7 @@ class RaceCar(
 
 Mutable `points` is updated after each race (if applicable) using `addPoints` function.
 
-```kotlin {all|3,6-8}
+```kotlin {all|3|3,6-8}
 class Driver(
     val name: String,
     var points: Int = 0,
@@ -282,6 +283,92 @@ class RaceCar(
 - `currentWeather` is a **top level variable**. 
 
 -->
+
+---
+transition: fade-out
+layout: section
+
+level: 2
+---
+
+# Constants
+
+---
+transition: fade-out
+
+level: 3
+---
+# Understanding and Declaring Constants
+
+Constants are immutable values, determined at compile-time, that remain unchanged throughout program execution.
+
+<v-clicks>
+
+- Constants can be declared as top-level or within a companion object utilizing the `const` keyword with `val`
+  
+- Constants are public by default and their types can be inferred by the Kotlin compiler
+
+- Constants serve various purposes such as:
+  - Providing stable configuration settings
+  - Representing mathematical constants
+  - Denoting unchanging parameters in an application, like F1 Race rules
+
+
+</v-clicks>
+
+---
+transition: fade-out
+
+level: 3
+---
+# Restrictions and Benefits of Constants
+
+<v-clicks>
+
+- Constants are limited to primitive types and Strings in Kotlin.
+
+- Non-changing, complex objects that are not of primitive types or Strings can be declared as read-only properties using val.
+
+- Constants improve application performance due to compile-time optimization.
+
+- Code maintenance becomes easier as constants help avoid hard-coded values and reduce potential errors.
+
+- Constants can be used alongside other constants in expressions, computed at compile time.
+
+</v-clicks>
+
+
+---
+---
+
+# Constants Example
+Can you think of any Formula one rules that could be a constant?
+
+```kotlin {all|1,2,10-12}
+const val MAX_TEAMS = 10
+const val MAX_LAPS = 5
+
+class Race(
+    val numberOfLaps: Int,
+    val teams: List<Team>,
+    var currentLap: Int = 0,
+) {
+    // ...
+    companion object {
+        const val PITSTOP_TIME = 5.0 // 5 minutes
+    }
+}
+```
+
+<!--
+
+- Constants  `MAX_TEAMS`, `MAX_LAPS` are top-level constants
+- Constant `PITSTOP_TIME` is a class level constant defined within a companion object
+
+-->
+
+
+
 ---
 preload: false
 ---
