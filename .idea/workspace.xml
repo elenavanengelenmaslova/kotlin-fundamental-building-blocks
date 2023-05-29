@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca30f811-aa50-4422-90be-2c6faa82a046" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+    <list default="true" id="ca30f811-aa50-4422-90be-2c6faa82a046" name="Changes" comment="update with top level variable">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slides.md" beforeDir="false" afterPath="$PROJECT_DIR$/slides.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +29,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -70,8 +77,49 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685218369826</updated>
+      <workItem from="1685218371066" duration="10995000" />
+      <workItem from="1685332914849" duration="14760000" />
     </task>
+    <task id="LOCAL-00001" summary="add slides">
+      <created>1685218511469</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685218511469</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add slides">
+      <created>1685220610196</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685220610196</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update slides">
+      <created>1685220988021</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685220988021</updated>
+    </task>
+    <task id="LOCAL-00004" summary="replace logo icon with image">
+      <created>1685221483783</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685221483783</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update with top level variable">
+      <created>1685255931213</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685255931213</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -83,5 +131,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add slides" />
+    <MESSAGE value="update slides" />
+    <MESSAGE value="replace logo icon with image" />
+    <MESSAGE value="update with top level variable" />
+    <option name="LAST_COMMIT_MESSAGE" value="update with top level variable" />
   </component>
 </project>
