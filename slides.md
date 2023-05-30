@@ -19,7 +19,7 @@ transition: fade-out
 css: unocss
 ---
 
-# Fundamental Building Blocks of Kotlin
+# Fundamental Building Blocks of Kotlin, Part 1
 
 Bite size kotlin session 2
 
@@ -85,15 +85,15 @@ layout: default
 
 <v-clicks>
 
-1. Variables & Constants and Data Types
+1. Variables
 
-2. String templates
+2. Constants 
 
-3. Functions
+3. Data Types
 
-4. Null safety
+4. String templates
 
-5. Control flow statements
+5. Functions
 
 </v-clicks>
 
