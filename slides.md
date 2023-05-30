@@ -793,7 +793,7 @@ enum class RaceEvent {
 ```
 
 <!--
-We can generate these with IntelliJ
+
 -->
 
 ---
@@ -875,13 +875,101 @@ note top of Result: This is a nested class in Race.
 ```
 
 ---
-layout: center
-class: text-center
+transition: fade-out
+layout: section
+
+level: 2
 ---
 
-# Learn More
+# String templates
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+---
+transition: fade-out
+
+level: 3
+---
+# What is a String?
+
+<v-clicks>
+
+- Strings in Kotlin are objects of the `String` class
+
+- Strings are immutable
+
+- Strings are considered sequences of characters
+  
+- Strings are defined by using double quotes ("...")
+  
+- String class provides several methods to manipulate and examine the content
+  
+- Strings can be compared using standard comparison operators and functions
+
+</v-clicks>
+
+---
+transition: fade-out
+
+level: 3
+---
+# String Templates
+
+<v-clicks>
+
+- String concatenation is traditional but can be cumbersome and less efficient
+
+- String templates in Kotlin improve readability and efficiency.
+
+- String Interpolation: enables embedding of expressions within string templates
+
+- Raw Strings and String Templates
+  - Raw strings allow strings to be included exactly as they're written
+  - Raw strings and string templates can be used together to improve readability
+
+
+</v-clicks>
+---
+---
+
+# String Templates Example
+
+```kotlin {all|4,10}
+    private fun start() {
+        for (lap in 1..numberOfLaps) {
+            currentLap = lap
+            println("Starting lap $currentLap")
+            runLap()
+        }
+    }
+ 
+    private fun TeamResult.format(index: Int): String {
+        return "${index + 1}. Team ${this.team.name}"
+    }
+
+```
+
+---
+---
+
+# Raw Strings & String Templates Example
+
+```kotlin {all|5-9}
+     private fun displayLeaderboard() {
+        println("\n--- LEADERBOARD ---")
+        raceResults.sortBy { it.totalLapTime }
+        raceResults.forEachIndexed { index, result ->
+            val leaderboardEntry = """
+            |${index + 1}. Driver ${result.driver.name} in car #${result.car.carNumber}
+            |from team ${result.team.name} with total time ${result.totalLapTime} min.
+            |(fastest lap: ${result.fastestLap} min.)
+            """.trimMargin()
+            println(leaderboardEntry)
+        }
+    }
+```
+
+<!--
+
+-->
 
 ---
 layout: end
