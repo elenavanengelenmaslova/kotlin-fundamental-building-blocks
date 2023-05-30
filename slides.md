@@ -972,6 +972,226 @@ level: 3
 -->
 
 ---
+transition: fade-out
+layout: section
+
+level: 2
+---
+
+# Functions
+
+---
+transition: fade-out
+
+level: 3
+---
+# Top-Level Functions
+
+```kotlin {all}
+fun main(args: Array<String>) {
+  // ...
+}
+```
+
+<v-clicks>
+
+- Defined at the package level, not associated with a class or object.
+  
+- Can be invoked from anywhere in the program.
+  
+- Help to write utility functions or operations that don't belong to any specific class.
+
+</v-clicks>
+
+---
+transition: fade-out
+
+level: 3
+---
+# Member Functions
+
+```kotlin {all|3,6-8}
+class Driver(
+    val name: String,
+    var points: Int = 0,
+    val uuid: UUID = UUID.randomUUID() // unique identifier
+) {
+    fun addPoints(newPoints: Int) {
+        points += newPoints
+    }
+}
+```
+
+<v-clicks>
+
+- Defined within a class or object, associated with the instances of the class.
+  
+- Commonly used in object-oriented programming.
+  
+- Can access properties and other member functions of the same class
+
+</v-clicks>
+
+
+---
+transition: fade-out
+
+level: 3
+---
+# Nested Functions
+
+```kotlin {all|2-5,7}
+fun main() {
+    fun promptString(prompt: String): String {
+        print(prompt)
+        return readLine() ?: ""
+    }
+    val teams = List(numTeams) {
+        val teamName = promptString(prompt = "Enter name for team ${it + 1}: ")
+        createTeam(name = teamName, numLaps = numLaps)
+    }
+}
+```
+
+<v-clicks>
+
+- Functions defined within another function.
+  
+- Have access to variables from their parent function, which supports encapsulation.
+  
+- Improve code organization and avoid potential name clashes.
+
+</v-clicks>
+
+---
+transition: fade-out
+
+level: 3
+---
+# Extension Functions
+
+```kotlin {all|5,9-11}
+    private fun displayTeamLeaderboard() {
+        println("\n--- TEAM LEADERBOARD ---")
+        val teamResults = teams.toSortedTeamResults(raceResults)
+        teamResults.forEachIndexed { index, result ->
+            println(result.format(index))
+        }
+    }
+
+    private fun TeamResult.format(index: Int): String {
+        return "${index + 1}. Team ${this.team.name}"
+    }
+```
+
+<v-clicks>
+
+- Allow the addition of new functionality to a class without inheriting from it.
+  
+- Useful for extending a class whose source code you can't modify.
+  
+- Appear as regular methods of the class they extend.
+  
+</v-clicks>
+
+---
+transition: fade-out
+
+level: 3
+---
+# Lambda & Higher-Order Functions
+
+```kotlin {all}
+   private fun runLap() {
+        teams.forEach { team -> 
+            // This is a lambda
+            team.driverCarMap.forEach { (driver, car) -> 
+                // This is also a lambda
+            }
+        }
+    }
+```
+
+<v-clicks>
+
+- A lambda function an anonymous function.
+  
+- Higher-order functions are functions that can accept other functions as parameters, or return functions.
+  
+- Both concepts are crucial for functional programming in Kotlin and help to create flexible and concise code.
+
+</v-clicks>
+
+---
+preload: false
+---
+
+# Wrap Up and Next Steps
+
+We're on the final lap of our Kotlin F1 simulator development!
+
+<div class="w-full relative mt-6">
+  <div class="relative w-80 h-80">
+    <img
+      v-motion
+      :initial="{ x: 800 }"
+      :enter="final"
+      class="absolute top-0 left-0 right-0 bottom-0"
+      src="https://cdn-4.motorsport.com/images/amp/63vxMQEY/s1000/formula-1-red-bull-racing-laun-2.jpg"
+    />
+  </div>
+
+  <div
+    class="text-5xl absolute bottom-16 left-40 text-[#2B90B6] z-10"
+    v-motion
+    :initial="{ x: -80, opacity: 0}"
+    :enter="{ x: -7, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
+    Drive with 
+  </div>
+
+  <div
+    class="text-5xl absolute bottom-16 left-[calc(50%+3.8rem)] text-[#2B90B6] z-10"
+    v-motion
+    :initial="{ y: 100, opacity: 0}"
+    :enter="{ y: -4, opacity: 1, transition: { delay: 3500, duration: 1000 } }"
+    id="replaceK">
+    Kotlin!
+  </div>
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Kotlin_Icon.svg/512px-Kotlin_Icon.svg.png?20171012085709"
+alt="Kotlin Logo"
+v-motion
+:initial="{ y: 100, opacity: 0 }"
+:enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }"
+class="absolute w-15 h-15 bottom-16 left-[calc(50%+3rem)] z-30"
+/>
+
+
+
+</div>
+
+<script setup lang="ts">
+const final = {
+  x: 0,
+  y: 0,
+  rotate: 0,
+  scale: 1,
+  transition: {
+    type: 'spring',
+    damping: 10,
+    stiffness: 20,
+    mass: 2
+  }
+}
+
+setTimeout(() => {
+  document.getElementById('replaceK').style.opacity = "0";
+}, 3500);
+</script>
+
+
+---
 layout: end
 ---
 
