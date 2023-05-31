@@ -779,25 +779,6 @@ transition: fade-out
 level: 3
 ---
 # Custom Data Types - Enum Classes
-
-<v-clicks>
-
-- Designed primarily to hold data.
-
-- Auto-generated methods:  several useful generate methods, including
-  - `equals()`: Compares instance with the specified object for equality
-  - `hashCode()`: Returns a hash code value for the object
-  - `toString()`: Returns a string representation of the object
-  - `copy()`: Used to duplicate objects with some modifications
-
-</v-clicks>
-
----
----
-
-# Enum Example
-The RaceEvent enum denotes different types of events that can occur during a race. It clearly encapsulates these related constants, improving code readability and maintainability.
-
 ```kotlin {all}
 enum class RaceEvent {
     NORMAL,
@@ -807,10 +788,22 @@ enum class RaceEvent {
 
 ```
 
+<v-clicks>
+
+- Type safe enums
+
+- Enum Classes are used to create a type which can have a fixed number of possible instances. 
+
+- Enum classes have built-in methods, including:
+  - to list all constants : `values()` function `entries` property
+  - find a constant by its name: `valueOf(name: String)`
+  
+</v-clicks>
+
 <!--
-
+The RaceEvent enum denotes different types of events that can occur during a race. It clearly encapsulates these related constants, improving code readability and maintainability.
 -->
-
+---
 ---
 
 # Class Diagram
@@ -928,6 +921,10 @@ level: 3
 ---
 # String Templates
 
+```kotlin {all}
+val prompt = "Enter number of teams (up to $MAX_TEAMS): "
+```
+
 <v-clicks>
 
 - String concatenation is traditional but can be cumbersome and less efficient
@@ -939,6 +936,7 @@ level: 3
 - Raw Strings and String Templates
   - Raw strings allow strings to be included exactly as they're written
   - Raw strings and string templates can be used together to improve readability
+  - Raw Strings are defined with `""" ... """`
 
 
 </v-clicks>
