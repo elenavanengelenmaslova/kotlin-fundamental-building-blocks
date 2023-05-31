@@ -255,7 +255,7 @@ Variable 'scope' and 'lifetime' are essential aspects to understand for efficien
 # Variable Scope Example
 Can you identify local, member, and top level variables?
 
-```kotlin {all|9,13|9,11|13-15|5-8,11|1}
+```kotlin {all|9,11|13-15|5-8,11|1}
 var currentWeather: String = "Sunny"
 
 class RaceCar(
@@ -452,19 +452,29 @@ level: 3
 
 <v-clicks>
 
-- Int and Long
-  - Integer data types used to represent numbers without a decimal point. 
-  - Used in the F1 app for tracking points, car numbers, and laps.
+- Int and Long: represent numbers without a decimal point. 
+  - Int 32 bits: -2,147,483,648 to 2,147,483,647
+  - Long 64 bits: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
 
-- Double and Float
-  - Used to represent numbers with a decimal point. 
-  - In the F1 app, these types are utilized for tracking speed and time.
+- Double and Float: represent numbers with a decimal point. 
+  - Float 32 bits: precision of 6-7 decimal digits
+  - Long 64 bits: precision of 15-17 decimal digits
 
-- Boolean
-  - Can hold two values: true or false. 
-  - It is used in the F1 app to signal if a pit stop is needed.
+- Boolean: Represents logical values denoting truth or falsehood.
+  - Utilizes two possible states: true or false.
+  - Commonly used in conditional statements and logic controls in programming. 
 
 </v-clicks>
+
+<!--
+- Int: The Int data type in Kotlin is used to represent integer values, i.e., whole numbers without a fractional part. It uses 32 bits of memory and has a range from -2,147,483,648 to 2,147,483,647. It's often used in scenarios where the number value is within this range and fractional values aren't needed.
+
+- Long: The Long data type is also used for integer values, but it has a larger range compared to Int. Long uses 64 bits of memory and has a range from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807. Long should be used when you need to store integer values larger than what Int can handle.
+
+- Float: The Float data type is used for floating-point numbers, i.e., numbers with a fractional part. It uses 32 bits of memory and has a significant precision of 6-7 decimal digits. Float is often used in scenarios where you need to represent fractional numbers and the precision of 6-7 decimal digits is sufficient.
+
+- Double: The Double data type is used for floating-point numbers as well. It uses 64 bits of memory and has a significant precision of 15-17 decimal digits. Double provides more precision and a larger range than Float, and should be used when high precision is required for fractional numbers.
+-->
 
 ---
 transition: fade-out
@@ -476,12 +486,14 @@ level: 3
 <v-clicks>
 
 - Char and String
-  - Char represents a single character, while a String is a sequence of characters.
-  - Used in the F1 app to represent names of drivers and teams.
+  - Char: Represents a single Unicode character.
+  - String: Represents a sequence of characters, making it ideal for handling text
+  - In the F1 simulator app, these are used for representing elements such as the names of drivers and teams.
 
 - Array
-  - A container that can hold a fixed number of elements of a single type.
-  - In the F1 app, arrays are used to store lap times.
+  - Holds a fixed number of values of a single type.
+  - Allows indexed access to its elements, making it ideal for storing and manipulating collections of data.
+  - In the F1 simulator app, Arrays are employed to hold and manage lap times efficiently.
 
 </v-clicks>
 
@@ -602,6 +614,9 @@ level: 3
 
 </v-clicks>
 
+<!--
+Befroe we go further lets build the app, do section 5.1 on Basic Data Types and Operators
+-->
 ---
 ---
 
