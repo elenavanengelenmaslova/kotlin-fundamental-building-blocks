@@ -458,7 +458,7 @@ level: 3
 
 - Double and Float: represent numbers with a decimal point. 
   - Float 32 bits: precision of 6-7 decimal digits
-  - Long 64 bits: precision of 15-17 decimal digits
+  - Double 64 bits: precision of 15-17 decimal digits
 
 - Boolean: Represents logical values denoting truth or falsehood.
   - Utilizes two possible states: true or false.
@@ -615,7 +615,7 @@ level: 3
 </v-clicks>
 
 <!--
-Befroe we go further lets build the app, do section 5.1 on Basic Data Types and Operators
+Before we go further lets build the app, do section 5.1 on Basic Data Types and Operators
 -->
 ---
 ---
@@ -665,7 +665,6 @@ class Race(val numberOfLaps: Int, val teams: List<Team>, var currentLap: Int = 0
 ---
 
 # Collections Example - methods examples
-Mutable list of results & examples of methods for handling and processing elements
 
 ```kotlin {all|2-10|2,13|2,13,14}
 class Race(val numberOfLaps: Int, val teams: List<Team>, var currentLap: Int = 0) {
