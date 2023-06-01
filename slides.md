@@ -1126,7 +1126,7 @@ level: 3
 
 <v-clicks>
 
-- A lambda function an anonymous function.
+- A lambda function is an anonymous function.
   
 - Higher-order functions are functions that can accept other functions as parameters, or return functions.
   
