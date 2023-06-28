@@ -1,7 +1,7 @@
 ---
 # try also 'default' to start simple
 theme: default
-background: https://images.firstpost.com/wp-content/uploads/2019/08/redbull-rtr-380.jpg?impolicy=website&width=640&height=363
+background: buildingBlocksF1.jpeg
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
